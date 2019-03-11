@@ -53,3 +53,25 @@ def generate_gif(dirpath):
     for filename in filenames:
         images.append(imageio.imread(os.path.join(dirpath,filename)))
     imageio.mimsave(os.path.join(dirpath,'gif.gif'), images,duration=0.1)
+    
+
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib import cm 
+from matplotlib import axes
+ 
+def draw_heatmap(data_arr,walls,maze_size):
+    #cmap=cm.Blues    
+    cmap=cm.get_cmap('bone',1000)
+    figure=plt.figure(facecolor='w')
+    ax=figure.add_subplot(1,1,1)
+
+    map=ax.imshow(data,interpolation='nearest',cmap=cmap,aspect='auto',vmin=0,vmax=1)
+    cb=plt.colorbar(mappable=map,cax=None,ax=None,shrink=0.5)
+    plt.show()
+            
+a=np.random.rand(10,10)
+print a
+xlabels=['A','B','C','D','E','F','G','H','I','J']
+ylabels=['a','b','c','d','e','f','g','h','i','j']
+draw_heatmap(a,xlabels,ylabels)
