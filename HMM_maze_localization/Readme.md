@@ -45,7 +45,7 @@ Example results are shown as followed.
 ><div align=center><img width="550" height="900" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/Results.png"/>
   
 A gif is generated to show the process:
-
+Deeper blue the square is, the higher probability it has.
 ><div align=center><img width="550" height="400" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/HMM_localiztion.gif"/>
 
 
