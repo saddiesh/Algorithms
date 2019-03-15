@@ -3,6 +3,7 @@
 ## Problem description
 
 We consider a maze under a **windy condition** as shown in the following figure. 
+We assume that a robot aims to locate itself in the windy maze. The robot will perform two kinds of actions: **sensing** and **moving**.
 
 ><div align=center><img width="550" height="400" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/initial_maze.png"/>
 
