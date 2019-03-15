@@ -1,4 +1,4 @@
-# Search algorithm in maze problem
+# Localization algorithm using HMM in maze problem
 
 ## Problem description
 
@@ -42,6 +42,10 @@ We use Information Entropy 1 to measure the uncertainty of the location. For n p
 A probability array is printed to show the result for each step. The spuare with the highest value is where the robot most probably stays.
 Example results are shown as followed. 
 
-><div align=center><img width="550" height="900" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/initial_maze.png"/>
+><div align=center><img width="550" height="900" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/Results.png"/>
+  
+A gif is generated to show the process:
+
+><div align=center><img width="550" height="400" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/HMM_localiztion.gif"/>
 
 
