@@ -75,7 +75,7 @@ class Config_Maze():
     decimal = 3
     sensing = [ (1,1,1,1), (1,1,1,1), (1,1,0,1), (1,1,1,1), (1,1,0,0), (1,1,0,1) ]
     moving = ["northward", "northward", "northward", "eastward", "northward"]
-    author = "Linyan Wang, Di Shen"
+    author = "Saddie"
 
 
 class HMM_in_maze():
