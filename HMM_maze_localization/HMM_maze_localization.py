@@ -61,7 +61,7 @@ def cal_entropy(array):
                 value = arr[i][j]*math.log(arr[i][j],2)
                 arr[i][j] = value
     sum_entropy = -np.sum(arr)
-    return sum_entropy
+    return sum_entropy.round(decimals=4 )
 
 
 
@@ -75,7 +75,7 @@ class Config_Maze():
     decimal = 3
     sensing = [ (1,1,1,1), (1,1,1,1), (1,1,0,1), (1,1,1,1), (1,1,0,0), (1,1,0,1) ]
     moving = ["northward", "northward", "northward", "eastward", "northward"]
-    author = "Saddie"
+    author = "Linyan Wang, Di Shen"
 
 
 class HMM_in_maze():
@@ -294,7 +294,7 @@ class HMM_in_maze():
         
         show_rights(self.config.author)
         print("P( S1|Z1 ) :   entropy:{} \n".format(ent), P_S1_Z1*100,"\n")
-        #self.draw_heatmap(P_S1_Z1, self.config.obstacles, self.config.maze_size, "P( S1|Z1 )" )
+        self.draw_heatmap(P_S1_Z1, self.config.obstacles, self.config.maze_size, "P( S1|Z1 )" )
         
         P_St_Zt_save = [P_S1_Z1]
         P_Zt_St_save = [P_Z1_S1_arr]
@@ -311,7 +311,7 @@ class HMM_in_maze():
             P_St_Zt_1 = self.predicting (move, maze, self.config.maze_size, self.config.origins, P_St_1_Zt_1)
             show_rights(self.config.author)
             print("P( S{}|Z{} ) :\n".format(t+2, t+1), P_St_Zt_1*100,"\n")
-            #self.draw_heatmap(P_St_Zt_1, self.config.obstacles, self.config.maze_size, "P( S{}|Z{} ) :\n".format(t+2, t+1) )
+            self.draw_heatmap(P_St_Zt_1, self.config.obstacles, self.config.maze_size, "P( S{}|Z{} ) :\n".format(t+2, t+1) )
             P_St_St_1_save.append(P_St_Zt_1)
             
             sense = self.config.sensing[t+1]
@@ -321,7 +321,7 @@ class HMM_in_maze():
             ent = cal_entropy(P_St_Zt)
             show_rights(self.config.author)
             print("P( S{}|Z{} ):  entropy:{} \n".format(t+2, t+2, ent), P_St_Zt*100,"\n\n")
-            #self.draw_heatmap(P_St_Zt, self.config.obstacles, self.config.maze_size, "P( S{}|Z{} ) :\n".format(t+2, t+2) )
+            self.draw_heatmap(P_St_Zt, self.config.obstacles, self.config.maze_size, "P( S{}|Z{} ) :\n".format(t+2, t+2) )
             
             P_St_Zt_save.append(P_St_Zt)
             P_Zt_St_save.append(P_Zt_St_arr)
