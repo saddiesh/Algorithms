@@ -1,8 +1,9 @@
-# Search algorithm in maze problem
+# Localization algorithm using HMM in maze problem
 
 ## Problem description
 
 We consider a maze under a **windy condition** as shown in the following figure. 
+We assume that a robot aims to locate itself in the windy maze. The robot will perform two kinds of actions: **sensing** and **moving**.
 
 ><div align=center><img width="550" height="400" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/initial_maze.png"/>
 
@@ -42,6 +43,10 @@ We use Information Entropy 1 to measure the uncertainty of the location. For n p
 A probability array is printed to show the result for each step. The spuare with the highest value is where the robot most probably stays.
 Example results are shown as followed. 
 
-><div align=center><img width="550" height="900" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/initial_maze.png"/>
+><div align=center><img width="550" height="700" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/Results.png"/>
+  
+A gif is generated to show the process:
+Deeper blue the square is, the higher probability it has.
+><div align=center><img width="550" height="400" src="https://github.com/saddiesh/Algorithms/blob/master/HMM_maze_localization/HMM_localiztion.gif"/>
 
 
