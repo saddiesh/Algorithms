@@ -34,16 +34,16 @@ def init_maze(shape, start, walls):
 
     return maze
 
-def listpath(fatherdict,start,end,res_maze):
+def listpath(fatherdict,start,end,res_maze, label_dict):
     '''if want to show solution path, 
     list the labels of the path'''
     
     endlabel=res_maze[end[0]][end[1]]
-    pathlist=[endlabel]
+    pathlist=[end]
     label=endlabel
     while label!= 888:
         fatherlabel=fatherdict[label]
-        pathlist.append(fatherlabel)
+        pathlist.append(label_dict[fatherlabel])
         label=fatherlabel
         
     return pathlist

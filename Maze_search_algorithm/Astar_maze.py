@@ -22,8 +22,9 @@ def compute_h_cost(loc1,endloc):
 def Astar_maze(ini_maze,steps,start,end,stepdict,stepcost,savepath):
     label=1
     labeldict={888:(4,5)}
-    costdict={888:14}
+    costdict={888:0}
     gcostdict={888:0}
+    cost_all = {}
     fatherdict={}
     while costdict!={}:
         costsort=sorted(costdict.items(),key=lambda d:d[1])
@@ -41,10 +42,11 @@ def Astar_maze(ini_maze,steps,start,end,stepdict,stepcost,savepath):
                     gcostdict[label]=gcostdict[expand[0]]+stepcost[step]
                     costdict[label]=gcostdict[expand[0]]+stepcost[step]+compute_h_cost(new,end)
                     #print(costdict)
+                    cost_all[new] = gcostdict[expand[0]]+stepcost[step]+compute_h_cost(new,end)
                     fatherdict[label]=maze[ex]
                     savepng=os.path.join(savepath,'{}'.format(label))
-                    if new!=end:
-                        vis.draw_maze(ini_maze,savepng,end,new[1],new[0],str(label))
+                    # if new!=end:
+                        # vis.draw_maze(ini_maze,savepng,end,new[1],new[0],str(label))
                     label+=1
                     #print(ucs_maze)
                     if new==end:
@@ -52,7 +54,11 @@ def Astar_maze(ini_maze,steps,start,end,stepdict,stepcost,savepath):
         else:
             continue
         break
-    return ini_maze,fatherdict
+    # print(cost_all)
+    # print(labeldict)
+    path = utils.listpath(fatherdict, start, end, ini_maze, labeldict)
+    print(path)
+    return path
 
 
 mazeshape=(8,11)
@@ -69,15 +75,13 @@ stepcost={0:2,1:1,2:2,3:3}
 maze=utils.init_maze(mazeshape, start, walls)
 
 #save images and gif under:
-dirpath="/Users/stephaniexia/Documents/UM/S2/CIS 579/Project1/Astar_image"
+dirpath="./"
 vis.draw_maze(maze,os.path.join(dirpath,"0.png"),end)
 
-Astar_result,fatherdict=Astar_maze(maze,steps,start,end,stepdict,stepcost,dirpath)
+path=Astar_maze(maze,steps,start,end,stepdict,stepcost,dirpath)
 
-path=utils.listpath(fatherdict,start,end,Astar_result)
-
-utils.show_result(Astar_result)
-utils.show_path(Astar_result,path)
-
-vis.draw_path(Astar_result,dirpath,end,path) 
-vis.generate_gif(dirpath)
+# utils.show_result(Astar_result)
+# utils.show_path(Astar_result,path)
+#
+# vis.draw_path(Astar_result,dirpath,end,path)
+# vis.generate_gif(dirpath)
